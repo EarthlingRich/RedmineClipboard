@@ -3,11 +3,14 @@ function readDom() {
     var contentHtml = document.getElementById("content");
     var taskHeader = contentHtml.getElementsByTagName("h2")[0];
 
-    var parentIssue = subjectHtml != null ? subjectHtml.getElementsByTagName("a")[0].innerText : "";
+    var parentIssue = subjectHtml != null ? subjectHtml.getElementsByTagName("a")[0] : null;
+    var parrentIssueText = parentIssue != null ? parentIssue.innerText : "";
     var taskText = subjectHtml != null ? subjectHtml.getElementsByTagName("h3")[0].innerText : "";
     var task = taskHeader != null ? taskHeader.innerText : "";
 
-    return parentIssue + ", " + task + ": " + taskText;
+    return (parrentIssueText != "" ? parrentIssueText + ", ": "")
+        + task + ": "
+        + taskText;
 }
 
 function copyToClipboard() {
