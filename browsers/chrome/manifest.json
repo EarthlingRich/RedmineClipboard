@@ -4,13 +4,16 @@
     "description": "Copy the number of a Redmine story and task to your clipboard.",
     "version": "1.0",
     "browser_action": {
-      "default_icon": "images/icon.png"
+      "default_icon": "images/icon-32.png"
     },
     "permissions": [
       "activeTab"
     ],
     "background": {
-        "scripts": ["js/background.js"],
+        "scripts": [
+            "js/browser-polyfill.min.js",
+            "js/background.js"
+        ],
         "persistent": false
     }
 }
